@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_task/view/login_screen/login_screen.dart';
+import 'package:flutter_task/view/registration_screen/registration_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -11,9 +12,9 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Future.delayed(Duration(seconds: 2)).then((value) =>
-        Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => LoginScreen())));
+    Future.delayed(Duration(seconds: 4)).then((value) =>
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => RegistrationScreen())));
     super.initState();
   }
 
@@ -28,15 +29,15 @@ class _SplashScreenState extends State<SplashScreen> {
               height: 100,
               width: 100,
               decoration: BoxDecoration(
-                  color: Colors.red,
+                  color: Colors.blueAccent,
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(30),
                       topRight: Radius.circular(30),
                       bottomRight: Radius.circular(30))),
               child: Icon(
-                Icons.shopping_basket_rounded,
+                Icons.shopping_bag,
                 size: 55,
-                color: Colors.amber,
+                color: Colors.black,
               ),
             ),
           ],

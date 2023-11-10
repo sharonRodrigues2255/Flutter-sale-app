@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_task/view/bottom_navigation/bottom_navigation.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class RegistrationScreen extends StatelessWidget {
+  const RegistrationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +14,7 @@ class LoginScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "Login",
+              "Registration",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             ),
             SizedBox(
@@ -22,7 +23,23 @@ class LoginScreen extends StatelessWidget {
             TextFormField(
               decoration: InputDecoration(
                   border: OutlineInputBorder(borderSide: BorderSide()),
-                  hintText: "Username or Email"),
+                  hintText: "Email"),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            TextFormField(
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(borderSide: BorderSide()),
+                  hintText: "Username"),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            TextFormField(
+              obscureText: true,
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(), hintText: "Password"),
             ),
             SizedBox(
               height: 20,
@@ -38,7 +55,12 @@ class LoginScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ElevatedButton(onPressed: () {}, child: Text("Login")),
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (context) => BottomNavigation()));
+                    },
+                    child: Text("Registration")),
               ],
             )
           ],
