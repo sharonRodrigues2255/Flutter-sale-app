@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_task/view/login_screen/login_screen.dart';
+import 'package:flutter_task/view/bottom_navigation/bottom_navigation.dart';
+
 import 'package:flutter_task/view/registration_screen/registration_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -12,9 +14,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Future.delayed(Duration(seconds: 4)).then((value) =>
-        Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => RegistrationScreen())));
+    checkRegistered();
     super.initState();
   }
 
@@ -59,5 +59,19 @@ class _SplashScreenState extends State<SplashScreen> {
         ],
       ),
     );
+  }
+
+  checkRegistered() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool? check = prefs.getBool("log");
+    print(check);
+
+    if (check == true) {
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => BottomNavigation()));
+    } else {
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (context) => RegistrationScreen()));
+    }
   }
 }

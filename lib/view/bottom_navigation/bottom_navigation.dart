@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_task/view/cart_screen/cart_screen.dart';
 import 'package:flutter_task/view/home_screen/home_screen.dart';
 import 'package:flutter_task/view/profile_screen/profile_screen.dart';
-import 'package:flutter_task/view/wishlist_screen/wishlist_screen.dart';
 
 class BottomNavigation extends StatefulWidget {
   const BottomNavigation({super.key});
@@ -36,8 +35,6 @@ class _BottomNavigationState extends State<BottomNavigation> {
             items: const [
               BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.favorite), label: "Wishlist"),
-              BottomNavigationBarItem(
                   icon: Icon(Icons.shopping_cart), label: "Cart"),
               BottomNavigationBarItem(
                   icon: Icon(Icons.person), label: "Profile"),
@@ -47,5 +44,5 @@ class _BottomNavigationState extends State<BottomNavigation> {
   }
 }
 
-List _pages = const [HomeScreen(), Wishlist(), CartScreen(), ProfileScreen()];
+List _pages = const [HomeScreen(), CartScreen(), ProfileScreen()];
 int selectedIndex = 0;

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_task/controller/wishlist_controller.dart';
 import 'package:flutter_task/model/products_model.dart';
-import 'package:provider/provider.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({super.key, required this.product});
@@ -10,7 +8,6 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<WishlistController>(context);
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
@@ -31,14 +28,16 @@ class ProductCard extends StatelessWidget {
                 ),
                 IconButton(
                     onPressed: () {
-                      provider.addtowishlist(product?.id);
+                      // provider.addtowishlist(product?.id);
                     },
-                    icon: provider.wishlistProducts!.contains(product!.id)
-                        ? Icon(
-                            Icons.favorite,
-                            color: Colors.red,
-                          )
-                        : Icon(Icons.favorite_border))
+                    // icon: provider.wishlistProducts == null
+                    //     ? Icon(Icons.favorite_border)
+                    //     : provider.wishlistProducts!.contains(product?.id)
+                    //         ? Icon(
+                    //             Icons.favorite,
+                    //             color: Colors.red,
+                    //           )
+                    icon: Icon(Icons.favorite_border))
               ],
             ),
             Container(

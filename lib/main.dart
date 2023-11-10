@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_task/controller/homepage_controller.dart';
-import 'package:flutter_task/controller/wishlist_controller.dart';
+import 'package:flutter_task/controller/login_and_registration_controller.dart';
 import 'package:flutter_task/view/splash_screen/splash_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => WishlistController()),
+        ChangeNotifierProvider(create: (context) => ResgistrationController()),
         ChangeNotifierProvider(create: (context) => HomepageController())
       ],
       child: MaterialApp(
